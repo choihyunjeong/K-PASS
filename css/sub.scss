@@ -1,0 +1,331 @@
+@charset "utf-8";
+@import url(reset.css);
+@import url(../font/Pretendard/stylesheet.css);
+
+body, html {
+    font-family: 'Pretendard';
+    font-size: 62.5%;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.05rem;
+    color: #1A1A1A;
+}
+
+.header {
+    width: 100%;
+    height: 9rem;
+    z-index: 999;
+
+    .inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 21rem;
+        margin: 0 auto;
+        transition: all 1s;
+        position: relative;
+        .logo {
+            img {
+                width: 9.6rem;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            .gnb {
+                display: flex;
+                
+                >li {
+                    width: 13rem;
+                    position: relative;
+                    text-align: center;
+                    
+                    .depth-01 {
+                        font-size: 2rem;
+                        font-weight: 500;
+                        line-height: 9rem;
+                        position: relative;
+
+                        &:hover {
+                            color: #FC5B00;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .depth-02 {
+                        position: absolute;
+                        top: 9rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: none;
+                        padding: 1rem 0;
+
+                        li {
+                            a {
+                                display: block;
+                                font-size: 1.8rem;
+                                white-space: nowrap;
+                                text-align: center;
+                                padding: 1rem 0;
+                            }
+
+                            &:hover {
+                                color: #FC5B00;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .util {
+            display: flex;
+            gap: 2.4rem;
+
+            li {
+                a {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
+        .bg {
+            width: 100%;
+            height: 22rem;
+            background-color: #fff;
+            position: absolute;
+            top: 9rem;
+            left: 0;
+            display: none;
+            z-index: -1;
+            span {
+                position: absolute;
+                left: -9999rem;
+            }
+        }
+
+        &:hover {
+            background-color: #fff;
+            border-bottom: 0.1rem solid #ddd;
+        }
+    }
+
+}
+
+.signup_process {
+    .sub_nav {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        li {
+            display: flex;
+            gap: 0.6rem;
+            .right {
+                width: 2rem;
+                object-fit: cover;
+                display: block;
+                filter: invert(80%) sepia(3%) saturate(0%) hue-rotate(92deg) brightness(106%) contrast(94%);
+            }
+            span {
+                font-size: 1.6rem;
+                color: #777;
+            }
+            &.dropdown {
+                position: relative;
+                strong {
+                    font-size: 1.8rem;
+                    color: #FC5B00;
+                    border-bottom: 0.2rem solid #FC5B00;
+                }
+                img {
+                    width: 2.2rem;
+                    object-fit: cover;
+                    display: block;
+                    transform: rotate(90deg);
+                }
+                .depth {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 2.8rem;
+                    left: 0;
+                    padding: 0.8rem;
+                    border-radius: 1rem;
+                    border: 0.1rem solid #ccc;
+                    box-shadow: 0 0 0.8rem #00000015;
+                    li {
+                        width: 100%;
+                        padding: 0.6rem 0;
+                        display: flex;
+                        a {
+                            display: block;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .process_box {
+        .process {
+            h3 {
+                font-size: 2.4rem;
+                font-weight: 600;
+            }
+            .list {
+                .item {
+                    img {
+
+                    }
+                    strong {
+
+                    }
+                    p {
+
+                    }
+                }
+            }
+        }
+        .short_btn {
+            li {
+                a {
+                    span {
+
+                    }
+                    img {
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.benefit {
+    .tab_list {
+        li {
+
+        }
+    }
+    .intro {
+        img {
+
+        }
+        .text_wrap {
+            h3 {
+
+            }
+            p {
+
+            }
+        }
+        .gyeonggi {
+            .nav_vertical {
+                img {
+
+                }
+                span {
+
+                }
+            }
+            .list {
+                .item {
+                    h3 {
+
+                    }
+                    p {
+
+                    }
+                    span {
+
+                    }
+                    strong {
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.up_btn {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 0.2rem solid #002147;
+    position: fixed;
+    bottom: 8rem;
+    right: 10rem;
+    transition: all 0.3s;
+    &:hover {
+        background-color: #002147;
+
+        img {
+            filter: invert(1);
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.footer {
+    width: 100%;
+    background-color: #DBE7F6;
+
+    .inner {
+        width: 150rem;
+        padding: 5rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+
+        .footer_logo {
+            width: 9.6rem;
+
+            img {
+                display: block;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info_wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            align-items: flex-end;
+
+            .info {
+                display: flex;
+                gap: 2rem;
+
+                li {
+                    a {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

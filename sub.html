@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사업소개</title>
+    <link rel="stylesheet" href="css/sub.scss">
+    <link rel="stylesheet" href="css/sub.css">
+
+    <script src="lib/jquery-3.7.1.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script>
+        $(function (){
+
+            $('.header .inner').on('mouseenter', function(){
+                $('.bg').stop().slideDown();
+                $('.header .depth-02').stop().slideDown();
+                $('.header .gnb > li').stop().animate({
+                    'width' : '15rem'
+                });
+            });
+            $('.header .inner').on('mouseleave', function(){
+                $('.bg').stop().slideUp();
+                $('.header .depth-02').stop().slideUp();
+                $('.header .gnb > li').stop().animate({
+                    'width' : '13rem'
+                })
+            });
+
+            $('.up_btn').on('click', function(){
+                $('html, body').animate({
+                    scrollTop : 0
+                }, 1000);
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <img src="img/logo_kpass.svg" alt="logo_kpass">
+                </h1><!-- .logo end -->
+                <nav class="nav">
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="depth-01">사업소개</a>
+                            <ul class="depth-02">
+                                <li><a href="#">K-패스소개</a></li>
+                                <li><a href="#">지역별혜택소개</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">이용안내</a>
+                            <ul class="depth-02">
+                                <li><a href="#">가입조건</a></li>
+                                <li><a href="#">적립금액안내</a></li>
+                                <li><a href="#">지급안내</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">K-패스 카드</a>
+                            <ul class="depth-02">
+                                <li><a href="#">카드 소개</a></li>
+                                <li><a href="#">사용안내</a></li>
+                                <li><a href="#">카드 이벤트</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">공지사항</a>
+                            <ul class="depth-02">
+                                <li><a href="#">공지사항</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">문의하기</a>
+                            <ul class="depth-02">
+                                <li><a href="#">문의하기</a></li>
+                                <li><a href="#">1:1문의</a></li>
+                                <li><a href="#">문의내역</a></li>
+                                <li><a href="#">자주묻는질문</a></li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                    </ul><!-- .gnb end -->
+                </nav><!-- .nav end -->
+                <ul class="util">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul><!-- .util end -->
+                <div class="bg"><span>background</span></div>
+            </div><!-- .inner end -->
+        </header><!-- .header end -->
+
+        <main class="main">
+            <section class="signup_process">
+                <ul class="sub_nav">
+                    <li><a href="index.html"><img src="img/icon_home.svg" alt="icon_home"></a></li>
+                    <li><img src="img/icon_arrow_right.svg" alt="arrow_right" class="right"></li>
+                    <li><span>사업소개</span></li>
+                    <li><img src="img/icon_arrow_right.svg" alt="arrow_right" class="right"></li>
+                    <li class="dropdown">
+                        <strong>지역별혜택소개</strong>
+                        <img src="img/icon_arrow_right.svg" alt="arrow_down">
+                        <ul class="depth">
+                            <li><a href="#">K-패스소개</a></li>
+                            <li><a href="#">지역별혜택소개</a></li>
+                        </ul><!-- .depth end -->
+                    </li>
+                </ul><!-- .sub_nav end -->
+                <div class="process_box">
+                    <div class="process">
+                        <h3>회원가입 절차</h3>
+                        <div class="list">
+                            <div class="item">
+                                <img src="img/icon_step1.svg" alt="icon_step1">
+                                <strong>STEP 1</span>
+                                <p>카드사에서 K-패스<br />
+                                    카드 신청 및 수령</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step2.svg" alt="icon_step2">
+                                <strong>STEP 2</span>
+                                <p>K-패스 앱 또는<br />
+                                    홈페이지 접속</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step3.svg" alt="icon_step3">
+                                <strong>STEP 3</span>
+                                <p>회원가입 클릭</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step4.svg" alt="icon_step4">
+                                <strong>STEP 4</span>
+                                <p>카드번호 15~16자리<br />
+                                    입력 후 유효성 체크</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step1.svg" alt="icon_step5">
+                                <strong>STEP 5</span>
+                                <p>본인인증 진행</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step6.svg" alt="icon_step6">
+                                <strong>STEP 6</span>
+                                <p>주민등록번호<br />
+                                    입력 후 주소지 검증</p>
+                            </div><!-- .item end -->
+                            <div class="item">
+                                <img src="img/icon_step7.svg" alt="icon_step7">
+                                <strong>STEP 7</span>
+                                <p>회원정보 입력 후<br />
+                                    가입 완료</p>
+                            </div><!-- .item end -->
+                        </div><!-- .list end -->
+                    </div><!-- .process end -->
+                    <ul class="shortcut_btn">
+                        <li><a href="#">
+                            <span>회원가입 바로가기</span>
+                            <img src="img/icon_arrow_right.svg" alt="arrow_right">
+                        </a></li>
+                        <li><a href="#">
+                            <span>카드발급 바로가기</span>
+                            <img src="img/icon_arrow_right.svg" alt="arrow_right">
+                        </a></li>
+                    </ul><!-- .shortcut_btn end -->
+                </div><!-- .process_box end -->
+            </section><!-- .signup_process end -->
+
+            <section class="benefit">
+                <ul class="tab_list">
+                    <li class="active">경기패스</li>
+                    <li>인천패스</li>
+                    <li>동백(부산)패스</li>
+                    <li>세종패스</li>
+                    <li>충남패스</li>
+                    <li>경남패스</li>
+                    <li>광주패스</li>
+                    <li>울산패스</li>
+                </ul><!-- .tab_list end -->
+                <div class="intro">
+                    <img src="img/logo_gyeonggi.svg" alt="logo_gyeonggi">
+                    <div class="text_wrap">
+                        <h3>대한민국 모든 길에 통한다</h3>
+                        <p>경기도민 교통비 부담 완화 및 대중교통 이용 활성화를 위한 전국 최강! 경기도민 맞춤형 교통비 지원 카드</p>
+                    </div><!-- .text_wrap end -->
+                </div><!-- .intro end -->
+                <div class="gyeonggi">
+                    <ul class="nav_vertical">
+                        <li>
+                            <img src="img/icon_nav1_act.svg" alt="icon_nav1_act" class="active">
+                            <span class="active">지원 대상</span>
+                        </li>
+                        <li>
+                            <img src="img/icon_nav2.svg" alt="icon_nav2">
+                            <span>지원 범위</span>
+                        </li>
+                        <li>
+                            <img src="img/icon_nav3.svg" alt="icon_nav3">
+                            <span>지원 금액</span>
+                        </li>
+                        <li>
+                            <img src="img/icon_nav4.svg" alt="icon_nav4">
+                            <span>이용방법</span>
+                        </li>
+                        <li>
+                            <img src="img/icon_nav5.svg" alt="icon_nav5">
+                            <span>문의하기</span>
+                        </li>
+                        <li>
+                            <img src="img/icon_nav6.svg" alt="icon_nav6">
+                            <span>홍보물</span>
+                        </li>
+                    </ul><!-- .nav_vertical end -->
+                    <div class="list">
+                        <div class="item">
+                             <h3>지원 대상</h3>
+                             <p>주민등록상 주소지가 경기도인 만 19세 이상 도민</p>
+                        </div><!-- .item end -->
+                        <div class="item">
+                             <h3>지원 범위</h3>
+                             <p>전국 모든 대중교통 (버스, 지하철, 신분당선, 광역버스, GTX 등)</p>
+                             <span>다만, 시외(고속)버스, KTX, SRT 등 별도 발권받아 탑승하는 교통수단은 포함되지 않습니다.</span>
+                        </div><!-- .item end -->
+                        <div class="item">
+                             <h3>지원 금액</h3>
+                             <p>월 15회 이상 대중교통 이용 시 무제한으로 교통비 실사용액의 일정 비율 지원</p>
+                             <strong>월 61회 이상 이용 시 높은 금액 순으로 60회까지는 K-패스로 지급하고, 61회부터는 100%환급률로 지급</strong>
+                             <ul>
+                                <li>일반 : 월별 교통비의 20% 환급</li>
+                                <li>청년 : 만19~39세는 월별 교통비의 30% 환급 (35~39세 추가 지급)</li>
+                                <li>저소득층 : 기초생활수급자, 차상위계층 등은 월별 교통비의 최대 53% 환급</li>
+                                <li>다자녀 : 2인 30%, 3인 이상 50% 적립</li>
+                             </ul>
+                             <strong>* 경기패스는 K-패스 1일 2회 적립횟수 제한에 해당되지 않습니다.</strong>
+                        </div><!-- .item end -->
+                        <div class="item">
+                             <h3>이용방법</h3>
+                             <ul>
+                                <li>
+                                    <strong>1. 가입하기</strong>
+                                    <ul>
+                                        <li>
+                                            <p>- K-패스 카드 발급(기발급 알뜰교통카드 이용 가능)</p>
+                                            <span>K-패스 카드 또는 알뜰교통카드 이용 가능</span>
+                                        </li>
+                                        <li>
+                                            <p>- K-패스 홈페이지 또는 앱에서 회원가입</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>2. 환급받기</strong>
+                                    <ul>
+                                        <li>
+                                            <p>- K-패스 카드로 대중교통 이용</p>
+                                        </li>
+                                        <li>
+                                            <p>- 월별 자동 환급</p>
+                                            <span>청구할인, 계좌입금, 마일리지 적립</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                             </ul>
+                        </div><!-- .item end -->
+                        <div class="item">
+                             <h3>문의하기</h3>
+                             <ul>
+                                <li>
+                                    <p>The경기패스 정책 및 제도 문의</p>
+                                    <span>고객센터 031-120</span>
+                                </li>
+                                <li>
+                                    <p>K-패스 정책 및 제도 문의</p>
+                                    <span>한국교통안전공단 054-459-7441, 7442, 7446</span>
+                                    <span>국토교통부 대도시권광역교통위원회 044-201-5084</span>
+                                </li>
+                                <li>
+                                    <p>이용 및 적립금 문의</p>
+                                    <span>k-패스 고객센터 031-427-4415</span>
+                                </li>
+                             </ul>
+                             <img src="img/sub_img1.webp" alt="sub_img1">
+                        </div><!-- .item end -->
+                        <div class="item">
+                             <h3>홍보물</h3>
+                             <img src="img/gyeonggi_img.jpeg" alt="gyeonggi">
+                        </div><!-- .item end -->
+                    </div><!-- .list end -->
+                </div><!-- .gyeonggi end -->
+            </section><!-- .benefit end -->
+        </main><!-- .main end -->
+
+        <button type="button" class="up_btn">
+            <img src="img/up_btn.svg" alt="up_btn">
+        </button><!-- .up_btn end -->
+
+        <footer class="footer">
+            <div class="inner">
+                <div class="footer_logo">
+                    <img src="img/logo_kpass.svg" alt="logo_kpass">
+                </div><!-- .footer_logo end -->
+                <div class="info_wrap">
+                    <ul class="info">
+                        <li><a href="#">서비스이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이메일무단수집거부</a></li>
+                        <li><a href="#">품질오류신고</a></li>
+                    </ul><!-- .info end -->
+                    <p>Copyright ⓒ Ministry of Land, Infrastructure and Transport. All Rights Reserved.</p>
+                </div><!-- .info_wrap end -->
+            </div><!-- .inner end -->
+        </footer><!-- .footer end -->
+
+    </div><!-- #wrap end -->
+</body>
+
+</html>

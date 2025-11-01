@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'KIMMBold';
+    src: url('KIMMBold.eot');
+    src: url('KIMMBold.eot?#iefix') format('embedded-opentype'),
+        url('KIMMBold.woff2') format('woff2'),
+        url('KIMMBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
