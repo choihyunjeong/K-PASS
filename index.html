@@ -8,41 +8,41 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.scss">
     <link rel="stylesheet" href="css/main.css">
-    
+
 
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="lib/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <script>
         $(function () {
 
-            $('.top_banner button').on('click', function(){
+            $('.top_banner button').on('click', function () {
                 $('.top_banner').slideUp();
                 $('.header').animate({
-                    'top' : '0'
+                    'top': '0'
                 });
             });
 
-            $('.header .inner').on('mouseenter', function(){
+            $('.header .inner').on('mouseenter', function () {
                 $('.bg').stop().slideDown();
                 $('.header .depth-02').stop().slideDown();
                 $('.header .gnb > li').stop().animate({
-                    'width' : '15rem'
+                    'width': '15rem'
                 });
             });
-            $('.header .inner').on('mouseleave', function(){
+            $('.header .inner').on('mouseleave', function () {
                 $('.bg').stop().slideUp();
                 $('.header .depth-02').stop().slideUp();
                 $('.header .gnb > li').stop().animate({
-                    'width' : '13rem'
+                    'width': '13rem'
                 })
             });
 
             let tabMenu = document.querySelectorAll('.tab_list li');
             let cardList = document.querySelectorAll('.card_list');
 
-            for(let i = 0; i < tabMenu.length; i++) {
+            for (let i = 0; i < tabMenu.length; i++) {
                 tabMenu[i].addEventListener('click', () => {
                     cardList.forEach(cardListIndex => {
                         cardListIndex.classList.remove('active');
@@ -55,15 +55,34 @@
                 });
             }
 
-            $('.up_btn').on('click', function(){
+            
+            let footer = document.querySelector('.footer');
+            let footerTop = footer.offsetTop;
+
+            let windowHeight = window.innerHeight;
+            let topBtn = document.querySelector('.up_btn')
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.scrollY;
+
+                console.log(scrollTop)
+                if (windowHeight + scrollTop >= footerTop) {
+                    topBtn.classList.add('active');
+                } else {
+                    topBtn.classList.remove('active');
+                }
+
+            });
+
+            $('.up_btn').on('click', function () {
                 $('html, body').animate({
-                    scrollTop : 0
+                    scrollTop: 0
                 }, 1000);
             });
 
         }); //script end
     </script>
-    
+
 </head>
 
 <body>
@@ -356,11 +375,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -368,11 +389,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_baro.svg" alt="cardlogo_baro" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_baro.svg" alt="cardlogo_baro"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_baro.svg" alt="cardlogo_baro" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_baro.svg" alt="cardlogo_baro"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -380,11 +403,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_IBK.svg" alt="cardlogo_IBK" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_IBK.svg" alt="cardlogo_IBK" class="card_logo">
+                                </div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_IBK.svg" alt="cardlogo_IBK" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_IBK.svg" alt="cardlogo_IBK" class="card_logo">
+                                </div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -392,11 +417,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_hyundai.svg" alt="cardlogo_hyundai" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hyundai.svg" alt="cardlogo_hyundai"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_hyundai.svg" alt="cardlogo_hyundai" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hyundai.svg" alt="cardlogo_hyundai"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -404,11 +431,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_gwangju.svg" alt="cardlogo_gwangju" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_gwangju.svg" alt="cardlogo_gwangju"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_gwangju.svg" alt="cardlogo_gwangju" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_gwangju.svg" alt="cardlogo_gwangju"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -416,11 +445,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_iMbank.svg" alt="cardlogo_iMbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_iMbank.svg" alt="cardlogo_iMbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_iMbank.svg" alt="cardlogo_iMbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_iMbank.svg" alt="cardlogo_iMbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                     </div><!-- .card_list end -->
@@ -433,11 +464,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_shinhan.svg" alt="cardlogo_shinhan" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_shinhan.svg" alt="cardlogo_shinhan"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제계좌(체크는 대표계좌)로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_shinhan.svg" alt="cardlogo_shinhan" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_shinhan.svg" alt="cardlogo_shinhan"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -445,11 +478,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_woori.svg" alt="cardlogo_woori" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_woori.svg" alt="cardlogo_woori"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~9영업일 이후 결제대금에서 차감되며, 결제 대금이 없는 경우 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_woori.svg" alt="cardlogo_woori" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_woori.svg" alt="cardlogo_woori"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -457,11 +492,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_samsung.svg" alt="cardlogo_samsung" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_samsung.svg" alt="cardlogo_samsung"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>7~8영업일 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_samsung.svg" alt="cardlogo_samsung" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_samsung.svg" alt="cardlogo_samsung"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -469,11 +506,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_iMupay.svg" alt="cardlogo_iMupay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_iMupay.svg" alt="cardlogo_iMupay"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>모바일 카드는 익월 7영업일에 원마일리지로, 실물 카드는 iM유페이 홈페이지에서 별도의 지급 신청 후 지급됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_iMupay.svg" alt="cardlogo_iMupay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_iMupay.svg" alt="cardlogo_iMupay"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -481,11 +520,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>8~10영업일에 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_hana.svg" alt="cardlogo_hana"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -493,11 +534,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo">
+                                </div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 7~9영업일 내 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo">
+                                </div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -505,11 +548,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_busanbank.svg" alt="cardlogo_busanbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_busanbank.svg" alt="cardlogo_busanbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 8~10영업일에 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_busanbank.svg" alt="cardlogo_busanbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_busanbank.svg" alt="cardlogo_busanbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -517,11 +562,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_lotte.svg" alt="cardlogo_lotte" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_lotte.svg" alt="cardlogo_lotte"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 7~10영업일 사이 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_lotte.svg" alt="cardlogo_lotte" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_lotte.svg" alt="cardlogo_lotte"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                     </div><!-- .card_list end -->
@@ -534,11 +581,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_KB.svg" alt="cardlogo_KB" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_KB.svg" alt="cardlogo_KB" class="card_logo">
+                                </div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립 월의 익월 마지막 영업일에 내 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_KB.svg" alt="cardlogo_KB" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_KB.svg" alt="cardlogo_KB" class="card_logo">
+                                </div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -546,11 +595,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_kbank.svg" alt="cardlogo_kbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kbank.svg" alt="cardlogo_kbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 15일(휴일일 경우 다음 영업일)에 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_kbank.svg" alt="cardlogo_kbank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kbank.svg" alt="cardlogo_kbank"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -594,11 +645,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_kakaopay.svg" alt="cardlogo_kakaopay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kakaopay.svg" alt="cardlogo_kakaopay"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 20일 카카오페이앱의 쿠폰함으로 지급됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_kakaopay.svg" alt="cardlogo_kakaopay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kakaopay.svg" alt="cardlogo_kakaopay"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -606,11 +659,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo">
+                                </div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 11영업일에 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_NH.svg" alt="cardlogo_NH" class="card_logo">
+                                </div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -618,11 +673,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_tmoney.svg" alt="cardlogo_tmoney" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_tmoney.svg" alt="cardlogo_tmoney"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립 월의 익월 16일 T마일리지로 지급됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_tmoney.svg" alt="cardlogo_tmoney" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_tmoney.svg" alt="cardlogo_tmoney"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -630,11 +687,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_Npay.svg" alt="cardlogo_Npay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_Npay.svg" alt="cardlogo_Npay"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 20일 잔액이 자동 증액됩니다. (1회 이상 이용 필수)</p>
-                                <div class="logo"><img src="img/cardlogo_Npay.svg" alt="cardlogo_Npay" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_Npay.svg" alt="cardlogo_Npay"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -642,11 +701,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_kakaobank.svg" alt="cardlogo_kakaobank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kakaobank.svg" alt="cardlogo_kakaobank"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 20일(휴일일 경우 직전 영업일)에 내 계좌로 입금됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_kakaobank.svg" alt="cardlogo_kakaobank" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_kakaobank.svg" alt="cardlogo_kakaobank"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                         <div class="card_wrap">
@@ -654,11 +715,13 @@
                                 <div class="chip_img">
                                     <img src="img/card_chip.svg" alt="card_chip">
                                 </div><!-- .chip_img end -->
-                                <div class="logo"><img src="img/cardlogo_korail.svg" alt="cardlogo_korail" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_korail.svg" alt="cardlogo_korail"
+                                        class="card_logo"></div>
                             </div><!-- .card_front end -->
                             <div class="card_back">
                                 <p>적립월의 익월 20일~25일에 모바일 레일플러스 앱 내 쿠폰함을 통해 지급됩니다.</p>
-                                <div class="logo"><img src="img/cardlogo_korail.svg" alt="cardlogo_korail" class="card_logo"></div>
+                                <div class="logo"><img src="img/cardlogo_korail.svg" alt="cardlogo_korail"
+                                        class="card_logo"></div>
                             </div><!-- .card_back end -->
                         </div><!-- .card_wrap end -->
                     </div><!-- .card_list end -->
@@ -691,11 +754,12 @@
 
         </main><!-- .main end -->
 
-        <button type="button" class="up_btn">
-            <img src="img/up_btn.svg" alt="up_btn">
-        </button><!-- .up_btn end -->
+
 
         <footer class="footer">
+            <button type="button" class="up_btn">
+                <img src="img/up_btn.svg" alt="up_btn">
+            </button><!-- .up_btn end -->
             <div class="inner">
                 <div class="footer_logo">
                     <img src="img/logo_kpass.svg" alt="logo_kpass">

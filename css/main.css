@@ -843,7 +843,11 @@ body {
      object-fit: cover;
 }
 
-.up_btn {
+.footer {
+  width: 100%;
+  background-color: #DBE7F6;
+}
+.footer .up_btn {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
@@ -852,23 +856,23 @@ body {
   bottom: 8rem;
   right: 10rem;
   transition: all 0.3s;
+  z-index: 999;
 }
-.up_btn:hover {
+.footer .up_btn:hover {
   background-color: #002147;
 }
-.up_btn:hover img {
+.footer .up_btn:hover img {
   filter: invert(1);
 }
-.up_btn img {
+.footer .up_btn.active {
+  position: absolute;
+  bottom: 20rem;
+}
+.footer .up_btn img {
   display: block;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.footer {
-  width: 100%;
-  background-color: #DBE7F6;
 }
 .footer .inner {
   width: 150rem;
