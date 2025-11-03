@@ -1,12 +1,17 @@
 @import url(reset.css);
 @import url(../font/Pretendard/stylesheet.css);
-body, html {
+body,
+html {
   font-family: "Pretendard";
   font-size: 62.5%;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.05rem;
   color: #1A1A1A;
+}
+
+body {
+  position: relative;
 }
 
 .header {
@@ -24,6 +29,7 @@ body, html {
   margin: 0 auto;
   transition: all 1s;
   position: relative;
+  border-bottom: 0.1rem solid #ddd;
 }
 .header .inner .logo img {
   width: 9.6rem;
@@ -45,23 +51,38 @@ body, html {
   position: relative;
   text-align: center;
 }
+.header .inner .nav .gnb > li:first-child::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #FC5B00;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .header .inner .nav .gnb > li .depth-01 {
   font-size: 2rem;
   font-weight: 500;
   line-height: 9rem;
   position: relative;
 }
-.header .inner .nav .gnb > li .depth-01:hover {
+.header .inner .nav .gnb > li .depth-01.active {
   color: #FC5B00;
   font-weight: 600;
 }
 .header .inner .nav .gnb > li .depth-02 {
+  width: 100%;
+  height: 22rem;
   position: absolute;
   top: 9rem;
   left: 50%;
   transform: translateX(-50%);
   display: none;
-  padding: 1rem 0;
+  /* margin: 1rem 0; */
+}
+.header .inner .nav .gnb > li .depth-02 li {
+  width: 100%;
 }
 .header .inner .nav .gnb > li .depth-02 li a {
   display: block;
@@ -70,9 +91,28 @@ body, html {
   text-align: center;
   padding: 1rem 0;
 }
-.header .inner .nav .gnb > li .depth-02 li:hover {
+.header .inner .nav .gnb > li:hover {
   color: #FC5B00;
-  font-weight: 500;
+  font-weight: 600;
+  /* background-color: #FFFAF6; */
+}
+.header .inner .nav .gnb > li:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #FC5B00;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.header .inner .nav .gnb > li:hover .depth-02 li a {
+  color: #1A1A1A;
+  font-weight: 400;
+}
+.header .inner .nav .gnb > li:hover .depth-02 li a:hover {
+  color: #FC5B00;
+  font-weight: 600;
 }
 .header .inner .util {
   display: flex;
@@ -80,6 +120,9 @@ body, html {
 }
 .header .inner .util li a {
   font-size: 1.6rem;
+}
+.header .inner .util li:hover a {
+  font-weight: 600;
 }
 .header .inner .bg {
   width: 100%;
@@ -95,15 +138,18 @@ body, html {
   position: absolute;
   left: -9999rem;
 }
-.header .inner:hover {
-  background-color: #fff;
-  border-bottom: 0.1rem solid #ddd;
-}
 
+.signup_process {
+  width: 150rem;
+  margin: 4rem auto 10rem;
+  /* sub_nav */
+  /* process_box */
+}
 .signup_process .sub_nav {
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  margin-bottom: 3rem;
 }
 .signup_process .sub_nav li {
   display: flex;
@@ -122,6 +168,7 @@ body, html {
 }
 .signup_process .sub_nav li.dropdown {
   position: relative;
+  cursor: pointer;
 }
 .signup_process .sub_nav li.dropdown strong {
   font-size: 1.8rem;
@@ -140,12 +187,17 @@ body, html {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 2.8rem;
+  top: 3rem;
   left: 0;
   padding: 0.8rem;
   border-radius: 1rem;
-  border: 0.1rem solid #ccc;
+  border: 0.1rem solid #ddd;
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.0823529412);
+  background-color: #fff;
+  display: none;
+}
+.signup_process .sub_nav li.dropdown .depth.active {
+  display: flex;
 }
 .signup_process .sub_nav li.dropdown .depth li {
   width: 100%;
@@ -156,36 +208,320 @@ body, html {
   display: block;
   font-size: 1.6rem;
 }
+.signup_process .process_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* process */
+  /* shortcut_btn */
+}
+.signup_process .process_box .process {
+  width: 83.06%;
+  height: 33.2rem;
+  background-color: #F6F6F6;
+  border-radius: 2rem;
+}
 .signup_process .process_box .process h3 {
   font-size: 2.4rem;
   font-weight: 600;
+  text-align: center;
+  padding-top: 4rem;
 }
-.up_btn {
+.signup_process .process_box .process .list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.signup_process .process_box .process .list .item {
+  width: 12.03%;
+  display: flex;
+  flex-direction: column;
+}
+.signup_process .process_box .process .list .item img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.signup_process .process_box .process .list .item strong {
+  font-size: 1.6rem;
+  color: #FC5B00;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.signup_process .process_box .process .list .item p {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.signup_process .process_box .shortcut_btn {
+  width: 15.33%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.signup_process .process_box .shortcut_btn li {
+  width: 100%;
+  height: 15rem;
+  background-color: #FFF7F2;
+  border-radius: 1rem;
+  position: relative;
+  transition: 0.3s;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.1215686275);
+  cursor: pointer;
+}
+.signup_process .process_box .shortcut_btn li a {
+  display: inline-block;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+.signup_process .process_box .shortcut_btn li a span {
+  font-size: 1.6rem;
+  color: #FC5B00;
+  font-weight: 600;
+}
+.signup_process .process_box .shortcut_btn li a span::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  background: url(../img/icon_arrow_right.svg) center center/cover no-repeat;
+  position: absolute;
+  top: 50%;
+  right: -9rem;
+  transform: translateY(-50%);
+}
+.signup_process .process_box .shortcut_btn li:hover {
+  background-color: #FC5B00;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.2666666667);
+  transition: 0.5s;
+}
+.signup_process .process_box .shortcut_btn li:hover a span {
+  color: #fff;
+}
+.signup_process .process_box .shortcut_btn li:hover a span::after {
+  background: url(../img/icon_arrow_right-w.svg) center center/cover no-repeat;
+}
+
+/* signup_process */
+.benefit {
+  width: 150rem;
+  margin: 0 auto;
+  /* tab_list */
+  /* gyeonggi */
+}
+.benefit .tab_list {
+  display: flex;
+  gap: 2rem;
+}
+.benefit .tab_list li {
+  font-size: 1.8rem;
+  padding: 0.8rem 2rem;
+  border: 0.1rem solid #999;
+  border-radius: 4rem;
+  cursor: pointer;
+}
+.benefit .tab_list li.active {
+  font-weight: 600;
+  color: #fff;
+  background-color: #FC5B00;
+  border: 0.1rem solid #FC5B00;
+}
+.benefit .intro {
+  display: flex;
+  gap: 20rem;
+  margin: 12rem auto;
+  justify-content: center;
+  align-items: center;
+}
+.benefit .intro img {
+  display: block;
+  width: 26.8rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.benefit .intro .text_wrap h3 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.benefit .intro .text_wrap p {
+  font-size: 2rem;
+}
+.benefit .gyeonggi {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* nav_vertical */
+}
+.benefit .gyeonggi .nav_vertical {
+  width: 21.8%;
+  position: sticky;
+  top: 4rem;
+}
+.benefit .gyeonggi .nav_vertical li {
+  width: 100%;
+  height: 8rem;
+}
+.benefit .gyeonggi .nav_vertical li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding: 0 5rem;
+  border-radius: 1rem;
+}
+.benefit .gyeonggi .nav_vertical li a img {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+}
+.benefit .gyeonggi .nav_vertical li a .active {
+  display: none;
+}
+.benefit .gyeonggi .nav_vertical li a span {
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #999;
+}
+.benefit .gyeonggi .nav_vertical li a.active {
+  background-color: #FFF7F2;
+}
+.benefit .gyeonggi .nav_vertical li a.active .active {
+  display: block;
+}
+.benefit .gyeonggi .nav_vertical li a.active .default {
+  display: none;
+}
+.benefit .gyeonggi .nav_vertical li a.active span {
+  font-weight: 600;
+  color: #FC5B00;
+}
+.benefit .gyeonggi .list {
+  width: 74.4%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.benefit .gyeonggi .list .item {
+  width: 100%;
+  padding: 5rem;
+  border: 0.1rem solid #999;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+.benefit .gyeonggi .list .item h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.benefit .gyeonggi .list .item p {
+  font-size: 2rem;
+}
+.benefit .gyeonggi .list .item span {
+  font-size: 1.8rem;
+  color: #777;
+}
+.benefit .gyeonggi .list .item li {
+  font-size: 1.6rem;
+}
+.benefit .gyeonggi .list .item strong {
+  font-size: 2rem;
+}
+.benefit .gyeonggi .list .item .how_to {
+  display: flex;
+  gap: 12rem;
+}
+.benefit .gyeonggi .list .item .how_to strong {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.benefit .gyeonggi .list .item .how_to ul {
+  padding-left: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.benefit .gyeonggi .list .item .how_to ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.benefit .gyeonggi .list .item .how_to ul li span {
+  display: block;
+  margin-left: 1rem;
+}
+.benefit .gyeonggi .list .item:hover {
+  box-shadow: 0.4rem 0.4rem 1rem rgba(0, 0, 0, 0.1254901961);
+}
+.benefit .gyeonggi .list .item:last-child img {
+  width: 100%;
+}
+.benefit .gyeonggi .list .item:nth-child(3) li {
+  color: #777;
+  line-height: 1.5;
+}
+.benefit .gyeonggi .list .item:nth-child(5) ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.benefit .gyeonggi .list .item:nth-child(5) ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.benefit .gyeonggi .list .item:nth-child(5) ul li span {
+  display: block;
+  margin-left: 1rem;
+}
+.benefit .gyeonggi .list .item:nth-child(5) img {
+  width: 23rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  right: 5rem;
+  bottom: 3rem;
+}
+
+/* benefit */
+.footer {
+  width: 100%;
+  background-color: #DBE7F6;
+}
+.footer .up_btn {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
   border: 0.2rem solid #002147;
   position: fixed;
   bottom: 8rem;
-  right: 10rem;
-  transition: all 0.3s;
+  right: 8rem;
+  z-index: 999;
 }
-.up_btn:hover {
+.footer .up_btn:hover {
   background-color: #002147;
 }
-.up_btn:hover img {
+.footer .up_btn:hover img {
   filter: invert(1);
 }
-.up_btn img {
+.footer .up_btn.active {
+  position: absolute;
+  bottom: 16rem;
+}
+.footer .up_btn img {
   display: block;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.footer {
-  width: 100%;
-  background-color: #DBE7F6;
 }
 .footer .inner {
   width: 150rem;

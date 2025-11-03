@@ -86,18 +86,19 @@ body {
   line-height: 9rem;
   position: relative;
 }
-.header .inner .nav .gnb > li .depth-01:hover {
-  color: #FC5B00;
-  font-weight: 600;
-}
 .header .inner .nav .gnb > li .depth-02 {
+  width: 100%;
+  height: 22rem;
   position: absolute;
   top: 9rem;
   left: 50%;
   transform: translateX(-50%);
   display: none;
   z-index: 9;
-  padding: 1rem 0;
+  /* margin: 1rem 0; */
+}
+.header .inner .nav .gnb > li .depth-02 li {
+  width: 100%;
 }
 .header .inner .nav .gnb > li .depth-02 li a {
   display: block;
@@ -106,9 +107,28 @@ body {
   text-align: center;
   padding: 1rem 0;
 }
-.header .inner .nav .gnb > li .depth-02 li:hover {
+.header .inner .nav .gnb > li:hover {
   color: #FC5B00;
-  font-weight: 500;
+  font-weight: 600;
+  /* background-color: #FFFAF6; */
+}
+.header .inner .nav .gnb > li:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.3rem;
+  background-color: #FC5B00;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.header .inner .nav .gnb > li:hover .depth-02 li a {
+  color: #1A1A1A;
+  font-weight: 400;
+}
+.header .inner .nav .gnb > li:hover .depth-02 li a:hover {
+  color: #FC5B00;
+  font-weight: 600;
 }
 .header .inner .util {
   display: flex;
@@ -116,6 +136,9 @@ body {
 }
 .header .inner .util li a {
   font-size: 1.6rem;
+}
+.header .inner .util li:hover a {
+  font-weight: 600;
 }
 .header .inner .bg {
   width: 100%;
@@ -206,7 +229,7 @@ body {
   transition: transform 0.5s;
 }
 .main_nav .inner .nav_wrap li:hover a span {
-  font-size: 2rem;
+  transform: scale(1.1);
   font-weight: 500;
 }
 .main_nav .inner .nav_wrap li a {
@@ -600,66 +623,142 @@ body {
   font-size: 2rem;
   font-weight: 300;
   padding: 0.8rem 0;
+  cursor: pointer;
 }
 .payment_schedule .inner .title_wrap .tab_list li.active {
   font-weight: 500;
   border-bottom: 0.2rem solid #1A1A1A;
 }
 .payment_schedule .inner .card_list {
-  display: flex;
-  gap: 10rem;
+  width: 130rem;
   position: absolute;
   top: 26rem;
   left: 15rem;
-  display: none;
-  animation: loop 20s linear infinite;
+  /* display: none; */
+  overflow: visible;
+  opacity: 0;
 }
 .payment_schedule .inner .card_list.active {
   display: flex;
+  opacity: 1;
+  z-index: 99;
 }
-.payment_schedule .inner .card_list:hover {
-  animation-play-state: paused;
+.payment_schedule .inner .card_list .swiper-wrapper {
+  transition-timing-function: linear;
 }
-@keyframes loop {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-30%);
-  }
-}
-.payment_schedule .inner .card_list .card_wrap {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide {
   width: 25rem;
   height: 39.5rem;
   border-radius: 1.5rem;
+  perspective: 80rem;
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.hana .card_wrap {
+  background: #00907F;
+  background: linear-gradient(225deg, rgb(0, 144, 127) 0%, rgb(0, 74, 59) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.baro .card_wrap {
+  background: #F79E1B;
+  background: linear-gradient(225deg, rgb(247, 158, 27) 0%, rgb(235, 0, 27) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.ibk .card_wrap {
+  background: #0099DA;
+  background: linear-gradient(225deg, rgb(0, 153, 218) 0%, rgb(0, 85, 162) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.hyundai .card_wrap {
+  background: #616161;
+  background: linear-gradient(225deg, rgb(97, 97, 97) 0%, rgb(7, 7, 7) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.gwangju_bank .card_wrap {
+  background: #3796D2;
+  background: linear-gradient(225deg, rgb(55, 150, 210) 0%, rgb(48, 31, 109) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.imbank .card_wrap {
+  background: #E2F15E;
+  background: linear-gradient(225deg, rgb(226, 241, 94) 0%, rgb(0, 199, 169) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.shinhan .card_wrap {
+  background: #0046FF;
+  background: linear-gradient(225deg, rgb(0, 70, 255) 0%, rgb(0, 33, 121) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.woori .card_wrap {
+  background: #7ED2FF;
+  background: linear-gradient(225deg, rgb(126, 210, 255) 26%, rgb(0, 131, 202) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.samsung .card_wrap {
+  background: #47A4FF;
+  background: linear-gradient(225deg, rgb(71, 164, 255) 26%, rgb(0, 60, 220) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.NH .card_wrap {
+  background: #009FE3;
+  background: linear-gradient(225deg, rgb(0, 159, 227) 0%, rgb(0, 89, 164) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.busanbank .card_wrap {
+  background: #CB2B11;
+  background: linear-gradient(225deg, rgb(203, 43, 17) 30%, rgb(88, 12, 0) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.lotte .card_wrap {
+  background: #716661;
+  background: linear-gradient(225deg, rgb(113, 102, 97) 10%, rgb(44, 42, 38) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.KB .card_wrap {
+  background: #FAB809;
+  background: linear-gradient(225deg, rgb(250, 184, 9) 0%, rgb(233, 133, 3) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.kbank .card_wrap {
+  background: #4262FF;
+  background: linear-gradient(225deg, rgb(66, 98, 255) 0%, rgb(1, 20, 167) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.ezl .card_wrap {
+  background: #FFCB00;
+  background: linear-gradient(225deg, rgb(255, 203, 0) 0%, rgb(215, 159, 1) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.kakao .card_wrap {
+  background: #FFEB00;
+  background: linear-gradient(225deg, rgb(255, 235, 0) 0%, rgb(254, 189, 0) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.tmoney .card_wrap {
+  background: #F08300;
+  background: linear-gradient(225deg, rgb(240, 131, 0) 0%, rgb(146, 8, 131) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.Npay .card_wrap {
+  background: #00DE5A;
+  background: linear-gradient(225deg, rgb(0, 222, 90) 0%, rgb(24, 145, 73) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide.korail .card_wrap {
+  background: #00AFD5;
+  background: linear-gradient(225deg, rgb(0, 175, 213) 0%, rgb(0, 84, 166) 100%);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide:hover .card_wrap {
+  transform: rotateY(180deg);
+}
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap {
+  width: 100%;
+  height: 100%;
   position: relative;
+  border-radius: 1.5rem;
   box-shadow: inset -0.15rem -0.15rem 0.4rem rgba(0, 0, 0, 0.6), inset 0.15rem 0.15rem 0.4rem rgba(255, 255, 255, 0.6);
   transition: transform 0.6s;
-  transform: perspective(80rem) rotateY(0deg);
   transform-style: preserve-3d;
 }
-.payment_schedule .inner .card_list .card_wrap:hover {
-  transform: perspective(80rem) rotateY(180deg);
-}
-.payment_schedule .inner .card_list .card_wrap .card_front {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
 }
-.payment_schedule .inner .card_list .card_wrap .card_front .chip_img {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front .chip_img {
   width: 15.5%;
   position: absolute;
   top: 11.39%;
   right: 32%;
 }
-.payment_schedule .inner .card_list .card_wrap .card_front .chip_img img {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front .chip_img img {
   display: block;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.payment_schedule .inner .card_list .card_wrap .card_front .logo {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front .logo {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -667,24 +766,24 @@ body {
   bottom: 3rem;
   right: 3rem;
 }
-.payment_schedule .inner .card_list .card_wrap .card_front .logo .card_logo {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front .logo .card_logo {
   display: block;
   height: 2.5rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.payment_schedule .inner .card_list .card_wrap .card_front .logo span {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_front .logo span {
   font-family: "KIMMBold";
   font-size: 2.2rem;
 }
-.payment_schedule .inner .card_list .card_wrap .card_back {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_back {
   position: absolute;
   width: 100%;
   height: 100%;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
-.payment_schedule .inner .card_list .card_wrap .card_back .logo {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_back .logo {
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -692,117 +791,21 @@ body {
   bottom: 3rem;
   right: 3rem;
 }
-.payment_schedule .inner .card_list .card_wrap .card_back .logo .card_logo {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_back .logo .card_logo {
   display: block;
   height: 2.5rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.payment_schedule .inner .card_list .card_wrap .card_back .logo span {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_back .logo span {
   display: block;
   font-family: "KIMMBold";
   font-size: 2.2rem;
 }
-.payment_schedule .inner .card_list .card_wrap .card_back p {
+.payment_schedule .inner .card_list .swiper-wrapper .swiper-slide .card_wrap .card_back p {
   font-size: 2rem;
   color: #fff;
   padding: 3rem 2rem;
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:first-child {
-  background: #0046FF;
-  background: linear-gradient(225deg, rgb(0, 70, 255) 0%, rgb(0, 33, 121) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(2) {
-  background: #7ED2FF;
-  background: linear-gradient(225deg, rgb(126, 210, 255) 26%, rgb(0, 131, 202) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(3) {
-  background: #47A4FF;
-  background: linear-gradient(225deg, rgb(71, 164, 255) 26%, rgb(0, 60, 220) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(4) {
-  background: #E2F15E;
-  background: linear-gradient(225deg, rgb(226, 241, 94) 0%, rgb(0, 199, 169) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(5) {
-  background: #00907F;
-  background: linear-gradient(225deg, rgb(0, 144, 127) 0%, rgb(0, 74, 59) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(6) {
-  background: #009FE3;
-  background: linear-gradient(225deg, rgb(0, 159, 227) 0%, rgb(0, 89, 164) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:nth-child(7) {
-  background: #CB2B11;
-  background: linear-gradient(225deg, rgb(203, 43, 17) 30%, rgb(88, 12, 0) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(3) .card_wrap:last-child {
-  background: #716661;
-  background: linear-gradient(225deg, rgb(113, 102, 97) 10%, rgb(44, 42, 38) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:first-child {
-  background: #FAB809;
-  background: linear-gradient(225deg, rgb(250, 184, 9) 0%, rgb(233, 133, 3) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(2) {
-  background: #4262FF;
-  background: linear-gradient(225deg, rgb(66, 98, 255) 0%, rgb(1, 20, 167) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(3) {
-  background: #FFCB00;
-  background: linear-gradient(225deg, rgb(255, 203, 0) 0%, rgb(215, 159, 1) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(4) {
-  background: #FFCB00;
-  background: linear-gradient(225deg, rgb(255, 203, 0) 0%, rgb(215, 159, 1) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(5) {
-  background: #FFEB00;
-  background: linear-gradient(225deg, rgb(255, 235, 0) 0%, rgb(254, 189, 0) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(6) {
-  background: #009FE3;
-  background: linear-gradient(225deg, rgb(0, 159, 227) 0%, rgb(0, 89, 164) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(7) {
-  background: #F08300;
-  background: linear-gradient(225deg, rgb(240, 131, 0) 0%, rgb(146, 8, 131) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(8) {
-  background: #00DE5A;
-  background: linear-gradient(225deg, rgb(0, 222, 90) 0%, rgb(24, 145, 73) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:nth-child(9) {
-  background: #FFEB00;
-  background: linear-gradient(225deg, rgb(255, 235, 0) 0%, rgb(254, 189, 0) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(4) .card_wrap:last-child {
-  background: #00AFD5;
-  background: linear-gradient(225deg, rgb(0, 175, 213) 0%, rgb(0, 84, 166) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:first-child {
-  background: #00907F;
-  background: linear-gradient(225deg, rgb(0, 144, 127) 0%, rgb(0, 74, 59) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:nth-child(2) {
-  background: #F79E1B;
-  background: linear-gradient(225deg, rgb(247, 158, 27) 0%, rgb(235, 0, 27) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:nth-child(3) {
-  background: #0099DA;
-  background: linear-gradient(225deg, rgb(0, 153, 218) 0%, rgb(0, 85, 162) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:nth-child(4) {
-  background: #616161;
-  background: linear-gradient(225deg, rgb(97, 97, 97) 0%, rgb(7, 7, 7) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:nth-child(5) {
-  background: #3796D2;
-  background: linear-gradient(225deg, rgb(55, 150, 210) 0%, rgb(48, 31, 109) 100%);
-}
-.payment_schedule .inner .card_list:nth-of-type(2) .card_wrap:last-child {
-  background: #E2F15E;
-  background: linear-gradient(225deg, rgb(226, 241, 94) 0%, rgb(0, 199, 169) 100%);
 }
 
 .event {
@@ -815,16 +818,62 @@ body {
 .event .inner .title_wrap {
   margin-bottom: 5rem;
   margin-left: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
-.event .inner .title_wrap h3 {
+.event .inner .title_wrap .text h3 {
   font-size: 4rem;
   font-weight: 600;
   line-height: 1;
   margin-bottom: 1.6rem;
 }
-.event .inner .title_wrap p {
+.event .inner .title_wrap .text p {
   font-size: 2rem;
   line-height: 1.4;
+}
+.event .inner .title_wrap .more_btn {
+  margin-right: 3rem;
+}
+.event .inner .title_wrap .more_btn a {
+  display: inline-block;
+  padding: 0.8rem 1rem 0.8rem 2rem;
+  border: 0.1rem solid #002147;
+  border-radius: 4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.event .inner .title_wrap .more_btn a span {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #002147;
+}
+.event .inner .title_wrap .more_btn a .default {
+  display: block;
+  width: 3rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: rotate(90deg);
+}
+.event .inner .title_wrap .more_btn a .hover {
+  display: none;
+  width: 2.8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.event .inner .title_wrap .more_btn a:hover {
+  background-color: #002147;
+}
+.event .inner .title_wrap .more_btn a:hover span {
+  color: #fff;
+  font-weight: 500;
+}
+.event .inner .title_wrap .more_btn a:hover .hover {
+  display: block;
+}
+.event .inner .title_wrap .more_btn a:hover .default {
+  display: none;
 }
 .event .inner .list {
   display: flex;
@@ -835,6 +884,10 @@ body {
   width: 20%;
   border-radius: 2rem;
   overflow: hidden;
+}
+.event .inner .list .item:hover img {
+  transform: scale(1.05);
+  transition: transform 0.5s;
 }
 .event .inner .list .item img {
   display: block;
@@ -854,8 +907,7 @@ body {
   border: 0.2rem solid #002147;
   position: fixed;
   bottom: 8rem;
-  right: 10rem;
-  transition: all 0.3s;
+  right: 8rem;
   z-index: 999;
 }
 .footer .up_btn:hover {
@@ -866,7 +918,7 @@ body {
 }
 .footer .up_btn.active {
   position: absolute;
-  bottom: 20rem;
+  bottom: 16rem;
 }
 .footer .up_btn img {
   display: block;

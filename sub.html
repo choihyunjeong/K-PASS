@@ -4,35 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사업소개</title>
+    <title>지역별혜택소개</title>
     <link rel="stylesheet" href="css/sub.scss">
     <link rel="stylesheet" href="css/sub.css">
 
     <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="lib/jquery-ui.min.js"></script>
     <script>
-        $(function (){
+        $(function () {
 
-            $('.header .inner').on('mouseenter', function(){
+            $('.header .inner').on('mouseenter', function () {
                 $('.bg').stop().slideDown();
                 $('.header .depth-02').stop().slideDown();
                 $('.header .gnb > li').stop().animate({
-                    'width' : '15rem'
+                    'width': '15rem'
                 });
             });
-            $('.header .inner').on('mouseleave', function(){
+            $('.header .inner').on('mouseleave', function () {
                 $('.bg').stop().slideUp();
                 $('.header .depth-02').stop().slideUp();
                 $('.header .gnb > li').stop().animate({
-                    'width' : '13rem'
+                    'width': '13rem'
                 })
             });
 
-            $('.up_btn').on('click', function(){
+            $('.dropdown').on('click', function () {
+                $('.depth').toggleClass('active');
+            });
+
+            let tabMenu = document.querySelectorAll('.tab_list li');
+
+
+            for (let i = 0; i < tabMenu.length; i++) {
+                tabMenu[i].addEventListener('click', () => {
+
+                    tabMenu.forEach(tabMenuIndex => {
+                        tabMenuIndex.classList.remove('active');
+                    });
+
+                    tabMenu[i].classList.add('active');
+                });
+            }
+
+            let footer = document.querySelector('.footer');
+            let footerTop = footer.offsetTop;
+
+            let windowHeight = window.innerHeight;
+            let topBtn = document.querySelector('.up_btn')
+
+
+            window.addEventListener('scroll', () => {
+                let scrollTop = window.scrollY;
+
+                //console.log(scrollTop)
+                if (windowHeight + scrollTop >= footerTop + 1450) {
+                    topBtn.classList.add('active');
+                } else {
+                    topBtn.classList.remove('active');
+                }
+            });
+
+
+            $('.up_btn').on('click', function () {
                 $('html, body').animate({
-                    scrollTop : 0
+                    scrollTop: 0
                 }, 1000);
             });
+
+
+            //스크롤 했을 때 실행
+            //.gyeonggi .item 화면 가운데 왔을 때 .nav_vertical li의 같은 index()에게 클래스명 active추가,
+            //화면 높이값 $(window).innerHeight();
+            //화면 높이의 반값
+
+            //화면 높이값 $(window).innerHeight();
+            //화면 높이의 반값
+            // console.log( $(window).innerHeight() * 1 / 2)
+            // let windowHeight = $(window).innerHeight() / 2;
+
+            // let eventSection = $('.section-01').offset().top - windowHeight;
+
+            // $(window).on('scroll', function(){
+            //     let scrollBar = $(window).scrollTop(); 
+            //     if(eventSection <= scrollBar) {
+            //         $('.section-01').css({
+            //             'background-color' : 'pink'
+            //         });
+            //     } else {
+            //         $('.section-01').css({
+            //             'background-color' : ''
+            //         });
+            //     }
+
+            // });
+
+
+            var contentSection = $('.gyeonggi .item');
+            var navigation = $('.nav_vertical');
+
+            //when a nav link is clicked, smooth scroll to the section
+            navigation.on('click', 'a', function (event) {
+                event.preventDefault(); //prevents previous event
+                smoothScroll($(this.hash));
+            });
+
+            //update navigation on scroll...
+            $(window).on('scroll', function () {
+                updateNavigation();
+            })
+            //...and when the page starts
+            updateNavigation();
+
+            /////FUNCTIONS
+            function updateNavigation() {
+                contentSection.each(function () {
+                    var sectionName = $(this).attr('id');
+                    var navigationMatch = $('.nav_vertical li a[href="#' + sectionName + '"]');
+                    if (($(this).offset().top - $(window).height() / 4.4 < $(window).scrollTop()) &&
+                        ($(this).offset().top + $(this).height() - $(window).height() / 12 > $(window).scrollTop())) {
+                        navigationMatch.addClass('active');
+                    }
+                    else {
+                        navigationMatch.removeClass('active');
+                    }
+                });
+            }
+            function smoothScroll(target) {
+                $('body,html').animate({
+                    scrollTop: target.offset().top
+                }, 800);
+            }
+
+
+
 
         });
     </script>
@@ -43,12 +147,12 @@
         <header class="header">
             <div class="inner">
                 <h1 class="logo">
-                    <img src="img/logo_kpass.svg" alt="logo_kpass">
+                    <a href="index.html"><img src="img/logo_kpass.svg" alt="logo_kpass"></a>
                 </h1><!-- .logo end -->
                 <nav class="nav">
                     <ul class="gnb">
                         <li>
-                            <a href="#" class="depth-01">사업소개</a>
+                            <a href="#" class="depth-01 active">사업소개</a>
                             <ul class="depth-02">
                                 <li><a href="#">K-패스소개</a></li>
                                 <li><a href="#">지역별혜택소개</a></li>
@@ -117,55 +221,61 @@
                         <div class="list">
                             <div class="item">
                                 <img src="img/icon_step1.svg" alt="icon_step1">
-                                <strong>STEP 1</span>
+                                <strong>STEP 1</strong>
                                 <p>카드사에서 K-패스<br />
                                     카드 신청 및 수령</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step2.svg" alt="icon_step2">
-                                <strong>STEP 2</span>
+                                <strong>STEP 2</strong>
                                 <p>K-패스 앱 또는<br />
                                     홈페이지 접속</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step3.svg" alt="icon_step3">
-                                <strong>STEP 3</span>
+                                <strong>STEP 3</strong>
                                 <p>회원가입 클릭</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step4.svg" alt="icon_step4">
-                                <strong>STEP 4</span>
+                                <strong>STEP 4</strong>
                                 <p>카드번호 15~16자리<br />
                                     입력 후 유효성 체크</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step1.svg" alt="icon_step5">
-                                <strong>STEP 5</span>
+                                <strong>STEP 5</strong>
                                 <p>본인인증 진행</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step6.svg" alt="icon_step6">
-                                <strong>STEP 6</span>
+                                <strong>STEP 6</strong>
                                 <p>주민등록번호<br />
                                     입력 후 주소지 검증</p>
                             </div><!-- .item end -->
+
                             <div class="item">
                                 <img src="img/icon_step7.svg" alt="icon_step7">
-                                <strong>STEP 7</span>
+                                <strong>STEP 7</strong>
                                 <p>회원정보 입력 후<br />
                                     가입 완료</p>
                             </div><!-- .item end -->
+
                         </div><!-- .list end -->
                     </div><!-- .process end -->
+
                     <ul class="shortcut_btn">
                         <li><a href="#">
-                            <span>회원가입 바로가기</span>
-                            <img src="img/icon_arrow_right.svg" alt="arrow_right">
-                        </a></li>
+                                <span>회원가입 바로가기</span>
+                            </a></li>
                         <li><a href="#">
-                            <span>카드발급 바로가기</span>
-                            <img src="img/icon_arrow_right.svg" alt="arrow_right">
-                        </a></li>
+                                <span>카드발급 바로가기</span>
+                            </a></li>
                     </ul><!-- .shortcut_btn end -->
                 </div><!-- .process_box end -->
             </section><!-- .signup_process end -->
@@ -191,55 +301,73 @@
                 <div class="gyeonggi">
                     <ul class="nav_vertical">
                         <li>
-                            <img src="img/icon_nav1_act.svg" alt="icon_nav1_act" class="active">
-                            <span class="active">지원 대상</span>
+                            <a href="#nav1" class="active">
+                                <img src="img/icon_nav1.svg" alt="icon_nav1" class="default">
+                                <img src="img/icon_nav1_act.svg" alt="icon_nav1_act" class="active">
+                                <span>지원 대상</span>
+                            </a>
                         </li>
                         <li>
-                            <img src="img/icon_nav2.svg" alt="icon_nav2">
-                            <span>지원 범위</span>
+                            <a href="#nav2">
+                                <img src="img/icon_nav2.svg" alt="icon_nav2" class="default">
+                                <img src="img/icon_nav2_act.svg" alt="icon_nav2_act" class="active">
+                                <span>지원 범위</span>
+                            </a>
                         </li>
                         <li>
-                            <img src="img/icon_nav3.svg" alt="icon_nav3">
-                            <span>지원 금액</span>
+                            <a href="#nav3">
+                                <img src="img/icon_nav3.svg" alt="icon_nav3" class="default">
+                                <img src="img/icon_nav3_act.svg" alt="icon_nav3_act" class="active">
+                                <span>지원 금액</span>
+                            </a>
                         </li>
                         <li>
-                            <img src="img/icon_nav4.svg" alt="icon_nav4">
-                            <span>이용방법</span>
+                            <a href="#nav4">
+                                <img src="img/icon_nav4.svg" alt="icon_nav4" class="default">
+                                <img src="img/icon_nav4_act.svg" alt="icon_nav4_act" class="active">
+                                <span>이용방법</span>
+                            </a>
                         </li>
                         <li>
-                            <img src="img/icon_nav5.svg" alt="icon_nav5">
-                            <span>문의하기</span>
+                            <a href="#nav5">
+                                <img src="img/icon_nav5.svg" alt="icon_nav5" class="default">
+                                <img src="img/icon_nav5_act.svg" alt="icon_nav5_act" class="active">
+                                <span>문의하기</span>
+                            </a>
                         </li>
                         <li>
-                            <img src="img/icon_nav6.svg" alt="icon_nav6">
-                            <span>홍보물</span>
+                            <a href="#nav6">
+                                <img src="img/icon_nav6.svg" alt="icon_nav6" class="default">
+                                <img src="img/icon_nav6_act.svg" alt="icon_nav6_act" class="active">
+                                <span>홍보물</span>
+                            </a>
                         </li>
                     </ul><!-- .nav_vertical end -->
                     <div class="list">
-                        <div class="item">
-                             <h3>지원 대상</h3>
-                             <p>주민등록상 주소지가 경기도인 만 19세 이상 도민</p>
+                        <div id="nav1" class="item">
+                            <h3>지원 대상</h3>
+                            <p>주민등록상 주소지가 경기도인 만 19세 이상 도민</p>
                         </div><!-- .item end -->
-                        <div class="item">
-                             <h3>지원 범위</h3>
-                             <p>전국 모든 대중교통 (버스, 지하철, 신분당선, 광역버스, GTX 등)</p>
-                             <span>다만, 시외(고속)버스, KTX, SRT 등 별도 발권받아 탑승하는 교통수단은 포함되지 않습니다.</span>
+                        <div id="nav2" class="item">
+                            <h3>지원 범위</h3>
+                            <p>전국 모든 대중교통 (버스, 지하철, 신분당선, 광역버스, GTX 등)</p>
+                            <span>다만, 시외(고속)버스, KTX, SRT 등 별도 발권받아 탑승하는 교통수단은 포함되지 않습니다.</span>
                         </div><!-- .item end -->
-                        <div class="item">
-                             <h3>지원 금액</h3>
-                             <p>월 15회 이상 대중교통 이용 시 무제한으로 교통비 실사용액의 일정 비율 지원</p>
-                             <strong>월 61회 이상 이용 시 높은 금액 순으로 60회까지는 K-패스로 지급하고, 61회부터는 100%환급률로 지급</strong>
-                             <ul>
+                        <div id="nav3" class="item">
+                            <h3>지원 금액</h3>
+                            <p>월 15회 이상 대중교통 이용 시 무제한으로 교통비 실사용액의 일정 비율 지원</p>
+                            <strong>월 61회 이상 이용 시 높은 금액 순으로 60회까지는 K-패스로 지급하고, 61회부터는 100%환급률로 지급</strong>
+                            <ul>
                                 <li>일반 : 월별 교통비의 20% 환급</li>
                                 <li>청년 : 만19~39세는 월별 교통비의 30% 환급 (35~39세 추가 지급)</li>
                                 <li>저소득층 : 기초생활수급자, 차상위계층 등은 월별 교통비의 최대 53% 환급</li>
                                 <li>다자녀 : 2인 30%, 3인 이상 50% 적립</li>
-                             </ul>
-                             <strong>* 경기패스는 K-패스 1일 2회 적립횟수 제한에 해당되지 않습니다.</strong>
+                            </ul>
+                            <strong>* 경기패스는 K-패스 1일 2회 적립횟수 제한에 해당되지 않습니다.</strong>
                         </div><!-- .item end -->
-                        <div class="item">
-                             <h3>이용방법</h3>
-                             <ul>
+                        <div id="nav4" class="item">
+                            <h3>이용방법</h3>
+                            <ul class="how_to">
                                 <li>
                                     <strong>1. 가입하기</strong>
                                     <ul>
@@ -264,11 +392,11 @@
                                         </li>
                                     </ul>
                                 </li>
-                             </ul>
+                            </ul>
                         </div><!-- .item end -->
-                        <div class="item">
-                             <h3>문의하기</h3>
-                             <ul>
+                        <div id="nav5" class="item">
+                            <h3>문의하기</h3>
+                            <ul>
                                 <li>
                                     <p>The경기패스 정책 및 제도 문의</p>
                                     <span>고객센터 031-120</span>
@@ -282,26 +410,27 @@
                                     <p>이용 및 적립금 문의</p>
                                     <span>k-패스 고객센터 031-427-4415</span>
                                 </li>
-                             </ul>
-                             <img src="img/sub_img1.webp" alt="sub_img1">
+                            </ul>
+                            <img src="img/sub_img1.webp" alt="sub_img1">
                         </div><!-- .item end -->
-                        <div class="item">
-                             <h3>홍보물</h3>
-                             <img src="img/gyeonggi_img.jpeg" alt="gyeonggi">
+                        <div id="nav6" class="item">
+                            <h3>홍보물</h3>
+                            <img src="img/gyeonggi_img.jpeg" alt="gyeonggi">
                         </div><!-- .item end -->
                     </div><!-- .list end -->
                 </div><!-- .gyeonggi end -->
             </section><!-- .benefit end -->
         </main><!-- .main end -->
 
-        <button type="button" class="up_btn">
-            <img src="img/up_btn.svg" alt="up_btn">
-        </button><!-- .up_btn end -->
+
 
         <footer class="footer">
+            <button type="button" class="up_btn">
+                <img src="img/up_btn.svg" alt="up_btn">
+            </button><!-- .up_btn end -->
             <div class="inner">
                 <div class="footer_logo">
-                    <img src="img/logo_kpass.svg" alt="logo_kpass">
+                    <a href="index.html"><img src="img/logo_kpass.svg" alt="logo_kpass"></a>
                 </div><!-- .footer_logo end -->
                 <div class="info_wrap">
                     <ul class="info">
